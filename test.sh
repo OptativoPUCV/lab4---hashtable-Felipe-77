@@ -30,7 +30,7 @@ if [ -n "$CHANGED" ] || [ ! -f "a.out" ]; then
   else
     echo "Compilation with errors :c" >&3
     echo "Compilation failed" >> log
-    gcc $testcode -Wall -Werror -o a.out 2>&3
+    gcc $testcode -Wall  -o a.out 2>&3
     git rev-parse --short HEAD >> log
     #git add and commit
     git add $target_file log &> /dev/null 
