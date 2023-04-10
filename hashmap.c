@@ -51,8 +51,12 @@ void insertMap(HashMap * map, char * key, void * value) {
 
     while (map->buckets[index] != NULL && map->buckets[index]->key != NULL){
         
-        if (is_equal(key, map->buckets[index]->key) == 1) return;
+        if (is_equal(key, map->buckets[index]->key) == 1)
+            return;
         index++;
+
+        if (index >= map->size)
+            index %= map->capacity;
     }
 
     map->buckets[index] = newPair;
@@ -85,6 +89,18 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
+
+
+    long index = hash(key, map->capacity);
+    while (map->buckets[index] != NULL && map->buckets[index]->key != NULL){
+        
+        if (is_equal(key, map->buckets[index]->key) == 1)
+            return map->buckets[index];
+        index++;
+
+        if (index >= map->size)
+            index %= map->capacity;
+    }
 
 
     return NULL;
