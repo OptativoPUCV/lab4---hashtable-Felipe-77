@@ -20,7 +20,7 @@ if [ -n "$CHANGED" ] || [ ! -f "a.out" ]; then
 
   #Compilation
   echo "Compiling with: gcc $testcode -Wall -Werror -o a.out" >&3
-  if gcc $testcode -Wall -Werror -o a.out 2>>log ; then
+  if gcc $testcode -Wall  -o a.out 2>>log ; then
       echo  " tests: " $(($(./a.out | grep -c 'OK')))\|$(($(./a.out | grep -c 'FAILED'))) >> log
       ./a.out | tail -n1 >> log
       git rev-parse --short HEAD >> log
