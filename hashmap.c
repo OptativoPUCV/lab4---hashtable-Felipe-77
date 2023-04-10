@@ -128,8 +128,6 @@ Pair * firstMap(HashMap * map) {
     while (map->buckets[index] == NULL && map->buckets[index]->key == NULL){
         index++;
 
-        if (index >= map->size)
-            index %= map->capacity;
     }
 
     map->current = index;
