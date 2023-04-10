@@ -19,23 +19,23 @@ if [ -n "$CHANGED" ] || [ ! -f "a.out" ]; then
   git diff --stat --ignore-space-at-eol -b -w --ignore-blank-lines $target_file >> log
 
   #Compilation
-  echo "Compiling with: gcc $testcode -Wall -Werror -o a.out" >&3
+  echo "Compiling with: gcc $testcode -Wall  -o a.out" >&3
   if gcc $testcode -Wall  -o a.out 2>>log ; then
-      echo  " tests: " $(($(./a.out | grep -c 'OK')))\|$(($(./a.out | grep -c 'FAILED'))) >> log
-      ./a.out | tail -n1 >> log
-      git rev-parse --short HEAD >> log
-      #git add and commit
-      git add $target_file log &> /dev/null 
-      git commit -m 'new try' &> /dev/null 
+    echo  " tests: " $(($(./a.out | grep -c 'OK')))\|$(($(./a.out | grep -c 'FAILED'))) >> log
+    ./a.out | tail -n1 >> log
+    git rev-parse --short HEAD >> log
+    #git add and commit
+    git add $target_file log &> /dev/null 
+    git commit -m 'new try' &> /dev/null 
   else
-      echo "Compilation with errors :c" >&3
-      echo "Compilation failed" >> log
-      gcc $testcode -Wall -Werror -o a.out 2>&3
-      git rev-parse --short HEAD >> log
-      #git add and commit
-      git add $target_file log &> /dev/null 
-      git commit -m 'new try' &> /dev/null 
-      exit 1
+    echo "Compilation with errors :c" >&3
+    echo "Compilation failed" >> log
+    gcc $testcode -Wall -Werror -o a.out 2>&3
+    git rev-parse --short HEAD >> log
+    #git add and commit
+    git add $target_file log &> /dev/null 
+    git commit -m 'new try' &> /dev/null 
+    exit 1
   fi
 
  
@@ -53,7 +53,7 @@ if ./a.out &> /dev/null ; then
   echo "Quiere actualizar su avance en el servidor? (s|n): " >&3
   read response
 
-  if [ "$response" == "s" ]; then
+  if [ "$response" = "s" ]; then
     git pull >&3
     git push >&3
   fi
