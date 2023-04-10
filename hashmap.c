@@ -94,24 +94,37 @@ Pair * searchMap(HashMap * map,  char * key) {
     long index = hash(key, map->capacity);
     while (map->buckets[index] != NULL && map->buckets[index]->key != NULL){
         
-        if (is_equal(key, map->buckets[index]->key) == 1)
+        if (is_equal(key, map->buckets[index]->key) == 1){
+            map->current = index;
             return map->buckets[index];
+        }
+        
         index++;
 
         if (index >= map->size)
             index %= map->capacity;
     }
-
-
     return NULL;
 }
 
 Pair * firstMap(HashMap * map) {
 
-    return NULL;
+    long index = 0;
+
+    while (map->buckets[index] == NULL && map->buckets[index]->key == NULL)
+        index++;
+
+    map->current = index;
+    return map->buckets[index];
 }
 
 Pair * nextMap(HashMap * map) {
 
-    return NULL;
+    long index = map->current + 1;
+
+    while (map->buckets[index] == NULL && map->buckets[index]->key == NULL)
+        index++;
+
+    map->current = index;
+    return map->buckets[index];
 }
