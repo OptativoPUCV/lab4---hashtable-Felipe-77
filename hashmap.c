@@ -90,6 +90,7 @@ void eraseMap(HashMap * map,  char * key) {
         
         if (is_equal(key, map->buckets[index]->key) == 1){
             map->buckets[index]->key = NULL;
+            map->size--;
             return;
         }
         
@@ -124,7 +125,7 @@ Pair * firstMap(HashMap * map) {
 
     long index = 0;
 
-    while (map->buckets[index] == NULL && map->buckets[index]->key == NULL)
+    while (map->buckets[index] == NULL || map->buckets[index]->key == NULL)
         index++;
 
     map->current = index;
