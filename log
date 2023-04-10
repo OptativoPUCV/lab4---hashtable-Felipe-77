@@ -772,3 +772,97 @@ test.c:14:6: note: destination object referenced by ‘restrict’-qualified arg
       |      ^~~
  tests:  0|0
 f3d1e6b
+ hashmap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+test.c: In function ‘enlarge_test’:
+test.c:442:9: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  442 |         sprintf(msg,"%.100s\nbut should be: \nvalue3  (null)  (null)  (null)  value4  (null)  value2  value1  value0  (null)  (null)  (null)  value5  (null)  (null)  (null)  (null)  (null)  (null)  (null)",msg);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+test.c:439:18: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  439 |             else sprintf(msg,"%.100s%s  ", msg, (char*)map->buckets[i]->value);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+test.c:438:39: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  438 |             if(map->buckets[i]==NULL) sprintf(msg,"%.100s(null)  ",msg);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+ tests:  16|1
+total_score: 60/70
+f4a2c69
+test.c: In function ‘enlarge_test’:
+test.c:442:9: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  442 |         sprintf(msg,"%.100s\nbut should be: \nvalue3  (null)  (null)  (null)  value4  (null)  value2  value1  value0  (null)  (null)  (null)  value5  (null)  (null)  (null)  (null)  (null)  (null)  (null)",msg);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+test.c:439:18: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  439 |             else sprintf(msg,"%.100s%s  ", msg, (char*)map->buckets[i]->value);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+test.c:438:39: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  438 |             if(map->buckets[i]==NULL) sprintf(msg,"%.100s(null)  ",msg);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+ tests:  0|0
+f4a2c69
+lun 10 abr 2023 17:32:20 -04: 
+ hashmap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+test.c: In function ‘enlarge_test’:
+test.c:442:9: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  442 |         sprintf(msg,"%.100s\nbut should be: \nvalue3  (null)  (null)  (null)  value4  (null)  value2  value1  value0  (null)  (null)  (null)  value5  (null)  (null)  (null)  (null)  (null)  (null)  (null)",msg);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+test.c:439:18: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  439 |             else sprintf(msg,"%.100s%s  ", msg, (char*)map->buckets[i]->value);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+test.c:438:39: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  438 |             if(map->buckets[i]==NULL) sprintf(msg,"%.100s(null)  ",msg);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+ tests:  16|1
+total_score: 60/70
+f4a2c69
+lun 10 abr 2023 17:32:27 -04: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+test.c: In function ‘enlarge_test’:
+test.c:442:9: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  442 |         sprintf(msg,"%.100s\nbut should be: \nvalue3  (null)  (null)  (null)  value4  (null)  value2  value1  value0  (null)  (null)  (null)  value5  (null)  (null)  (null)  (null)  (null)  (null)  (null)",msg);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+test.c:439:18: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  439 |             else sprintf(msg,"%.100s%s  ", msg, (char*)map->buckets[i]->value);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+test.c:438:39: warning: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Wrestrict]
+  438 |             if(map->buckets[i]==NULL) sprintf(msg,"%.100s(null)  ",msg);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: note: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+ tests:  0|0
+f4a2c69
