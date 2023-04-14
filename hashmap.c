@@ -66,8 +66,8 @@ void enlarge(HashMap * map) {
     if (aux == NULL)    exit(EXIT_FAILURE);
     aux = map->buckets;
 
-    long oldCapacity = map->capacity;
-    map->capacity *= 2;
+    //long oldCapacity = map->capacity;
+    //map->capacity *= 2;
     map->size = 0;
 
     map->buckets = (Pair**)calloc(map->capacity, sizeof(Pair*));
