@@ -331,3 +331,5 @@ hashmap.c:86:9: error: ‘map’ undeclared (first use in this function)
 hashmap.c:86:9: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 e31b6c1
+ tests:  0|0
+021211b
