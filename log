@@ -312,3 +312,7 @@ test.c:14:6: note: destination object referenced by ‘restrict’-qualified arg
 20dfcb7
  tests:  0|0
 20dfcb7
+ tests:  0|0
+1d9a521
+ tests:  0|0
+1d9a521
