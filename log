@@ -316,3 +316,8 @@ test.c:14:6: note: destination object referenced by ‘restrict’-qualified arg
 1d9a521
  tests:  0|0
 1d9a521
+ tests:  16|1
+total_score: 60/70
+1d9a521
+ tests:  0|0
+97f01d1
