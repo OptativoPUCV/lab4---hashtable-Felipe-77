@@ -79,7 +79,7 @@ void enlarge(HashMap * map) {
 
 HashMap * createMap(long capacity) {
     
-    HashMap * new = (HashMap *) malloc(sizeof(HashMap) * capacity);
+    HashMap * new = (HashMap *) malloc(sizeof(HashMap));
     if (new == NULL) exit(EXIT_FAILURE);
 
     new->buckets = (Pair **) calloc(capacity, sizeof(Pair *));
