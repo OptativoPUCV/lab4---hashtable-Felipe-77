@@ -323,3 +323,11 @@ total_score: 60/70
 97f01d1
  tests:  0|0
 3699423
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:86:9: error: ‘map’ undeclared (first use in this function)
+   86 |     if (map->buckets == NULL)   exit(EXIT_FAILURE);
+      |         ^~~
+hashmap.c:86:9: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+e31b6c1
