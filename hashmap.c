@@ -62,16 +62,18 @@ void insertMap(HashMap * map, char * key, void * value) {
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
     
-    Pair ** aux = (Pair **) calloc(map->size, sizeof(Pair *));
-    if (aux == NULL)    exit(EXIT_FAILURE);
-    aux = map->buckets;
-
+    Pair ** aux = map->buckets;
+    
     long oldCapacity = map->capacity;
-    map->capacity *= 2;
+    map->capacity = oldCapacity * 2;
     map->size = 0;
 
-    //map->buckets = (Pair**)calloc(map->capacity, sizeof(Pair*));
-    
+    map->buckets = (Pair**)calloc(map->capacity, sizeof(Pair*));
+    for (int i = 0; i < oldCapacity; i++){
+        Pair * current = aux[i];
+        if (current == NULL) continue;
+        insertMap(map, current->key, current->value);
+    }
     
     return;
 }
@@ -111,7 +113,7 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
-
+    if (map->size == 0) return NULL;
 
     long index = hash(key, map->capacity);
     while (map->buckets[index] != NULL && map->buckets[index]->key != NULL){
@@ -130,7 +132,7 @@ Pair * searchMap(HashMap * map,  char * key) {
 }
 
 Pair * firstMap(HashMap * map) {
-
+    if (map->size == 0) return NULL;
     long index = 0;
 
     while (map->buckets[index] == NULL || map->buckets[index]->key == NULL){
@@ -143,7 +145,7 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
-
+    if (map->size == 0) return NULL;
     long index = map->current + 1;
 
     while (map->buckets[index] == NULL || map->buckets[index]->key == NULL){

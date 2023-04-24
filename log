@@ -344,3 +344,17 @@ total_score: 60/70
 04edac4
  tests:  0|0
 5ecf32b
+jue 13 abr 2023 20:18:36 -04: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  16|1
+total_score: 60/70
+5ecf32b
+dom 23 abr 2023 19:51:15 -04: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  0|0
+de3bb12
+ tests:  17|0
+total_score: 70/70
+de3bb12
